@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}หน้าแรก{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-4 mb-4">
+    <div class="position-relative text-center">
+        
+        <!-- รูปใหม่ -->
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80"
+             class="img-fluid w-100 rounded shadow"
+             style="max-height: 250px; object-fit: cover; filter: brightness(60%);">
+
+        <!-- ข้อความบนรูป -->
+        <div class="position-absolute top-50 start-50 translate-middle text-white">
+            <h2 class="fw-bold" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.7);">
+                ยินดีต้อนรับสู่เว็บไซต์ของรายวิชา ICT12367
+            </h2>
+        </div>
+
+    </div>
+</div>
+
+<div class="container text-center mb-4">
+    <h3 style="color: blueviolet;">
+        ยินดีต้อนรับเข้าสู่ประชากร
+    </h3>
+</div>
+    
+    <table class="table table-hover mt-3">
+        <thead>
+            <tr>
+                <th scope="col">รหัสประชากร</th>
+                <th scope="col">ชื่อประชากร</th>
+                <th scope="col">อายุ</th>
+                <th scope="col">วันที่เพิ่มข้อมูล</th>
+                <th scope="col">แก้ไข</th>
+                <th scope="col">ลบ</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in persons %} 
+            <tr>
+                <th scope="row">{{ person.id }}</th>
+                <td>{{ person.name }}</td>
+                <td>{{ person.age }}</td>
+                
+                <td>{{ person.date|date:"F d, Y" }}</td> 
+                
+                <td><a href="#" class="btn btn-warning">แก้ไข</a></td>
+                <td><a href="#" class="btn btn-danger">ลบ</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
